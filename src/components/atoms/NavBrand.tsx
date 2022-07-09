@@ -3,8 +3,10 @@ interface NavBrandProps
         React.AnchorHTMLAttributes<HTMLAnchorElement>,
         HTMLAnchorElement
     > {}
-const NavBrand: React.FC<NavBrandProps> = (props) => {
-    const { className, ...restProps } = props
+const NavBrand: React.FC<NavBrandProps> = ({
+    className = '',
+    ...restProps
+}) => {
     return (
         <a
             {...restProps}

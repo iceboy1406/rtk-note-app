@@ -5,8 +5,12 @@ interface TabItemProps
     > {
     isActive: boolean
 }
-const TabItem: React.FC<TabItemProps> = (props) => {
-    const { isActive, className, children, ...restProps } = props
+const TabItem: React.FC<TabItemProps> = ({
+    isActive,
+    className = '',
+    children,
+    ...restProps
+}) => {
     return (
         <button
             {...restProps}

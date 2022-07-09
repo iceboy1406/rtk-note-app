@@ -3,8 +3,11 @@ interface NoteDateProps
         React.HTMLAttributes<HTMLParagraphElement>,
         HTMLParagraphElement
     > {}
-const NoteDate: React.FC<NoteDateProps> = (props) => {
-    const { children, className , ...restProps} = props
+const NoteDate: React.FC<NoteDateProps> = ({
+    className = '',
+    children,
+    ...restProps
+}) => {
     return (
         <p
             {...restProps}

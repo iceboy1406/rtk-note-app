@@ -24,9 +24,13 @@ interface NoteListProps
     notes: Note[]
     archived: boolean
 }
-const NoteList: React.FC<NoteListProps> = (props) => {
+const NoteList: React.FC<NoteListProps> = ({
+    notes,
+    className = '',
+    archived,
+    ...restProps
+}) => {
     const noteState = useSelector((state: RootState) => state.note)
-    const { notes, className, archived, ...restProps } = props
     const dispatch = useAppDispatch()
     return (
         <ul

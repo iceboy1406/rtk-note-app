@@ -8,10 +8,9 @@ interface HeaderProps
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
     > {}
-const Header: React.FC<HeaderProps> = (props) => {
+const Header: React.FC<HeaderProps> = ({ className = '', ...restProps }) => {
     const { pathname } = useLocation()
     const navigate = useNavigate()
-    const { className, ...restProps } = props
 
     return (
         <header

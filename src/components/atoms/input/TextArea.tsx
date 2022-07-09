@@ -4,8 +4,10 @@ interface TextAreaProps
         React.TextareaHTMLAttributes<HTMLTextAreaElement>,
         HTMLTextAreaElement
     > {}
-const TextArea: React.FC<TextAreaProps> = (props) => {
-    const { className, ...restProps } = props
+const TextArea: React.FC<TextAreaProps> = ({
+    className = '',
+    ...restProps
+}) => {
     return (
         <textarea
             {...restProps}

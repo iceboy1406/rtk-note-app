@@ -7,8 +7,12 @@ interface NoteContentProps
     > {
     showMoreClassName?: string
 }
-const NoteContent: React.FC<NoteContentProps> = (props) => {
-    const {className, showMoreClassName, children, ...restProps} = props
+const NoteContent: React.FC<NoteContentProps> = ({
+    className = '',
+    showMoreClassName = '',
+    children,
+    ...restProps
+}) => {
     const value = children?.toString()!
     const [content, setContent] = useState(value)
     const [showMore, setShowMore] = useState(false)

@@ -5,8 +5,12 @@ interface NoteCardProps
     > {
     borderLeftNumber: number
 }
-const NoteCard: React.FC<NoteCardProps> = (props) => {
-    const { className, children, borderLeftNumber, ...restProps } = props
+const NoteCard: React.FC<NoteCardProps> = ({
+    className = '',
+    children,
+    borderLeftNumber,
+    ...restProps
+}) => {
     const inputNumber =
         borderLeftNumber < 0
             ? ((borderLeftNumber * -1) % 17) + 1

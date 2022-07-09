@@ -5,8 +5,12 @@ interface IconButtonProps
     > {
     theme: 'primary' | 'danger' | 'info'
 }
-const IconButton: React.FC<IconButtonProps> = (props) => {
-    const { theme, children, className, ...restProps } = props
+const IconButton: React.FC<IconButtonProps> = ({
+    theme = 'primary',
+    children,
+    className = '',
+    ...restProps
+}) => {
     const themeStyle = (() => {
         switch (theme) {
             case 'primary':

@@ -11,8 +11,14 @@ interface NoteBodyProps
     date: string
     content: string
 }
-const NoteBody: React.FC<NoteBodyProps> = (props) => {
-    const { children, className, title, date, content, ...restProps } = props
+const NoteBody: React.FC<NoteBodyProps> = ({
+    children,
+    className = '',
+    title,
+    date,
+    content,
+    ...restProps
+}) => {
     return (
         <article {...restProps} className={`flex flex-col gap-3 ${className}`}>
             <div className="flex flex-col gap-0.5">

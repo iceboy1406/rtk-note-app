@@ -5,8 +5,12 @@ interface ModalCardProps
     > {
     visible: boolean
 }
-const ModalCard: React.FC<ModalCardProps> = (props) => {
-    const { children, className, visible, ...restProps } = props
+const ModalCard: React.FC<ModalCardProps> = ({
+    children,
+    className = '',
+    visible,
+    ...restProps
+}) => {
     return (
         <div
             {...restProps}

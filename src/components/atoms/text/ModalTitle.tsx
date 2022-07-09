@@ -4,8 +4,11 @@ interface ModalTitleProps
         React.HTMLAttributes<HTMLHeadingElement>,
         HTMLHeadingElement
     > {}
-const ModalTitle: React.FC<ModalTitleProps> = (props) => {
-    const { className, children, ...restProps } = props
+const ModalTitle: React.FC<ModalTitleProps> = ({
+    className = '',
+    children,
+    ...restProps
+}) => {
     return (
         <h1
             {...restProps}

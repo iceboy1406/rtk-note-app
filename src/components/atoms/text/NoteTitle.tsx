@@ -5,8 +5,11 @@ interface NoteTitleProps
         React.HTMLAttributes<HTMLHeadingElement>,
         HTMLHeadingElement
     > {}
-const NoteTitle: FC<NoteTitleProps> = (props) => {
-    const { children, className , ...restProps} = props
+const NoteTitle: FC<NoteTitleProps> = ({
+    className = '',
+    children,
+    ...restProps
+}) => {
     return (
         <h1
             {...restProps}

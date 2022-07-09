@@ -3,8 +3,11 @@ interface ZeroNoteMessageProps
         React.HTMLAttributes<HTMLParagraphElement>,
         HTMLParagraphElement
     > {}
-const ZeroNoteMessage: React.FC<ZeroNoteMessageProps> = (props) => {
-    const { children, className , ...restProps} = props
+const ZeroNoteMessage: React.FC<ZeroNoteMessageProps> = ({
+    children,
+    className = '',
+    ...restProps
+}) => {
     return (
         <p
             {...restProps}

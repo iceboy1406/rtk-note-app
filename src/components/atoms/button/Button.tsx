@@ -5,8 +5,12 @@ interface ButtonProps
     > {
     theme: 'primary' | 'danger' | 'secondary' | 'info'
 }
-const Button: React.FC<ButtonProps> = (props) => {
-    const { theme, className, children, ...restProps } = props
+const Button: React.FC<ButtonProps> = ({
+    theme = 'primary',
+    className = '',
+    children,
+    ...restProps
+}) => {
     const themeStyle = (() => {
         switch (theme) {
             case 'primary':

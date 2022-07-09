@@ -8,43 +8,32 @@ interface ModalContainerProps
     onOpen?: Function
     visible: boolean
 }
-const ModalContainer: React.FC<ModalContainerProps> = (props) => {
-    const {
-        children,
-        className,
-        visible,
-        onClose,
-        onOpen,
-        onClick,
-        ...restProps
-    } = props
+const ModalContainer: React.FC<ModalContainerProps> = ({
+    children,
+    className = '',
+    visible,
+    onClose = () => {},
+    onOpen = () => {},
+    onClick = () => {},
+    ...restProps
+}) => {
     const containerRef: LegacyRef<HTMLDivElement> = useRef(null)
     useEffect(() => {
         document.body.addEventListener('keyup', (e) => {
-            if (e.key === 'Escape') {
-                if (onClose) onClose()
-            }
+            if (e.key === 'Escape') onClose()
         })
     }, [])
     useEffect(() => {
-        if (visible === true) {
-            if (onOpen) onOpen()
-        }
-        if (visible === false) {
-            if (onClose) onClose()
-        }
+        if (visible === true) onOpen()
+        if (visible === false) onClose()
     }, [visible])
     return (
         <div
             {...restProps}
             ref={containerRef}
             onClick={(e) => {
-                if (onClick) {
-                    onClick(e)
-                }
-                if (e.target === containerRef.current) {
-                    if (onClose) onClose()
-                }
+                onClick(e)
+                if (e.target === containerRef.current) onClose()
             }}
             className={`${
                 visible ? 'grid place-items-center' : 'hidden'

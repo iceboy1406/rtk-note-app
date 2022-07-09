@@ -5,8 +5,10 @@ interface TextInputProps
         HTMLInputElement
     > {}
 const TextInput = React.forwardRef(
-    (props: TextInputProps, ref: LegacyRef<HTMLInputElement>) => {
-        const { className, ...restProps } = props
+    (
+        { className = '', ...restProps }: TextInputProps,
+        ref: LegacyRef<HTMLInputElement>
+    ) => {
         return (
             <input
                 ref={ref}

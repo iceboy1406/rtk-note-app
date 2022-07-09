@@ -3,8 +3,11 @@ interface TabBarProps
         React.HTMLAttributes<HTMLDivElement>,
         HTMLDivElement
     > {}
-const TabBar: React.FC<TabBarProps> = (props) => {
-    const { children, className, ...restProps } = props
+const TabBar: React.FC<TabBarProps> = ({
+    children,
+    className = '',
+    ...restProps
+}) => {
     return (
         <div {...restProps} className={`grid grid-cols-2 gap-1`}>
             {children}

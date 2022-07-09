@@ -3,8 +3,11 @@ interface DefaultLayoutProps
         React.HTMLAttributes<HTMLDivElement>,
         HTMLDivElement
     > {}
-const DefaultLayout: React.FC<DefaultLayoutProps> = (props) => {
-    const { className, children, ...restProps } = props
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({
+    className = '',
+    children,
+    ...restProps
+}) => {
     return (
         <div
             {...restProps}

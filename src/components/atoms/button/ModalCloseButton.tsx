@@ -4,8 +4,10 @@ interface ModalCloseButtonProps
         React.ButtonHTMLAttributes<HTMLButtonElement>,
         HTMLButtonElement
     > {}
-const ModalCloseButton: React.FC<ModalCloseButtonProps> = (props) => {
-    const { className, ...restProps } = props
+const ModalCloseButton: React.FC<ModalCloseButtonProps> = ({
+    className = '',
+    ...restProps
+}) => {
     return (
         <button
             {...restProps}

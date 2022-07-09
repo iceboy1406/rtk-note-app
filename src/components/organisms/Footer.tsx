@@ -4,8 +4,7 @@ interface FooterProps
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
     > {}
-const Footer: React.FC<FooterProps> = (props) => {
-    const { className, ...restProps } = props
+const Footer: React.FC<FooterProps> = ({ className = '', ...restProps }) => {
     return (
         <footer
             {...restProps}

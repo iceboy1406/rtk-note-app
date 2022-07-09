@@ -10,8 +10,10 @@ interface ActionGroupProps
         React.HTMLAttributes<HTMLDivElement>,
         HTMLDivElement
     > {}
-const ActionGroup: React.FC<ActionGroupProps> = (props) => {
-    const { className, ...restProps } = props
+const ActionGroup: React.FC<ActionGroupProps> = ({
+    className = '',
+    ...restProps
+}) => {
     const noteState = useSelector((state: RootState) => state.note)
     const dispatch = useAppDispatch()
     useEffect(() => {
