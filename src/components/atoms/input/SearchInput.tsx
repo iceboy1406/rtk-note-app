@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 interface SearchInputProps
     extends React.DetailedHTMLProps<
@@ -7,14 +6,15 @@ interface SearchInputProps
     > {
     containerClassName?: string
 }
-const SearchInput: React.FC<SearchInputProps> = (props) => {
-    const [isFocus, setIsFocus] = useState(false)
-    const { className, containerClassName, id, ...restProps } = props
+const SearchInput: React.FC<SearchInputProps> = ({
+    className = '',
+    containerClassName = '',
+    id,
+    ...restProps
+}) => {
     return (
         <label
-            className={`flex gap-2.5 items-center px-5 py-2.5 h-fit bg-white rounded cursor-text border ${
-                isFocus ? 'border-primary-500' : 'border-transparent'
-            } transition-all duration-300 ${containerClassName}`}
+            className={`flex gap-2.5 items-center px-5 py-2.5 h-fit bg-white rounded cursor-text border border-transparent transition-all duration-300 ${containerClassName} focus-within:border-primary-500`}
             htmlFor={id}
         >
             <FiSearch className="text-gray-600 text-xl" />
@@ -23,9 +23,6 @@ const SearchInput: React.FC<SearchInputProps> = (props) => {
                 id={id}
                 type="search"
                 className={`bg-transparent text-base text-gray-600 placeholder:text-gray-500 flex-grow ${className}`}
-                onFocus={() => setIsFocus(true)}
-                onBlur={() => setIsFocus(false)}
-                autoComplete={'off'}
             />
         </label>
     )
