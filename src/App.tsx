@@ -1,3 +1,4 @@
+import PageNotFound from 'pages/404'
 import ActiveNotesPage from 'pages/ActiveNotesPage'
 import ArchivedNotesPage from 'pages/ArchivedNotesPage'
 import { Provider } from 'react-redux'
@@ -8,6 +9,7 @@ function App() {
         <Provider store={store}>
             <BrowserRouter>
                 <Routes>
+                    <Route path='*' element={<PageNotFound />} />
                     <Route
                         path="/"
                         element={<Navigate to={'/active-notes'} replace />}

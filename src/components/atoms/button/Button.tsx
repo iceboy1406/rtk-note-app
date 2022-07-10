@@ -3,7 +3,7 @@ interface ButtonProps
         React.ButtonHTMLAttributes<HTMLButtonElement>,
         HTMLButtonElement
     > {
-    theme: 'primary' | 'danger' | 'secondary' | 'info'
+    theme?: 'primary' | 'danger' | 'secondary' | 'info'
 }
 const Button: React.FC<ButtonProps> = ({
     theme = 'primary',
